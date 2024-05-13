@@ -24,65 +24,72 @@ class BMIApp extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Card(
-                    child: Column(
-                      children: [
-                        Text("WEIGHT"),
-                        Text("50"),
-                        Row(
-                          children: [
-                            MaterialButton(
-                              onPressed: () {},
-                              child: Icon(CupertinoIcons.plus),
-                              color: Colors.grey,
-                              shape: CircleBorder(),
-                            ),
-                            MaterialButton(
-                              onPressed: () {},
-                              child: Icon(CupertinoIcons.minus),
-                              color: Colors.grey,
-                              shape: CircleBorder(),
-                            ),
-                          ],
-                        ),
-                      ],
+            Expanded(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("WEIGHT"),
+                          Text("50"),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              MaterialButton(
+                                onPressed: () {},
+                                child: Icon(CupertinoIcons.plus),
+                                color: Colors.grey,
+                                shape: CircleBorder(),
+                              ),
+                              MaterialButton(
+                                onPressed: () {},
+                                child: Icon(CupertinoIcons.minus),
+                                color: Colors.grey,
+                                shape: CircleBorder(),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                Expanded(
-                  child: Card(
-                    child: Column(
-                      children: [
-                        Text("HEIGHT"),
-                        Text("150"),
-                        Row(
-                          children: [
-                            MaterialButton(
-                              onPressed: () {},
-                              child: Icon(CupertinoIcons.plus),
-                              color: Colors.grey,
-                              shape: CircleBorder(),
-                            ),
-                            MaterialButton(
-                              onPressed: () {},
-                              child: Icon(CupertinoIcons.minus),
-                              color: Colors.grey,
-                              shape: CircleBorder(),
-                            ),
-                          ],
-                        ),
-                      ],
+                  Expanded(
+                    child: Card(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text("HEIGHT"),
+                          Text("150"),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              MaterialButton(
+                                onPressed: () {},
+                                child: Icon(CupertinoIcons.plus),
+                                color: Colors.grey,
+                                shape: CircleBorder(),
+                              ),
+                              MaterialButton(
+                                onPressed: () {},
+                                child: Icon(CupertinoIcons.minus),
+                                color: Colors.grey,
+                                shape: CircleBorder(),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             Expanded(
               child: Card(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Your BMI is"),
                     Text("19.5"),
