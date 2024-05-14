@@ -87,21 +87,7 @@ class _InputScreenState extends State<InputScreen> {
           ),
           MaterialButton(
             onPressed: () {
-              // BMIBrain bmi = BMIBrain(height: height, weight: weight);
-              //
-              // bmiValue = bmi.displayBMI();
-              // bmiCategory = bmi.displayCategory();
-              //
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => ResultScreen(
-              //       bmiValue: bmiValue,
-              //       bmiCategory: bmiCategory,
-              //       name: name,
-              //     ),
-              //   ),
-              // );
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ResultScreen()));
             },
             child: Text("CALCULATE"),
             color: Colors.pink[700],

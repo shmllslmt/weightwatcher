@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:weightwatcher/bmibrain.dart';
 
 class ResultScreen extends StatelessWidget {
-  final String bmiValue;
-  final String bmiCategory;
-  final String name;
-
-  ResultScreen({required this.bmiValue, required this.bmiCategory, required this.name});
+  // final String bmiValue;
+  // final String bmiCategory;
+  // final String name;
+  //
+  // ResultScreen({required this.bmiValue, required this.bmiCategory, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class ResultScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Hi " + name,
+                    "Hi " + context.watch<BMIBrain>().nama,
                     style: TextStyle(
                       color: Colors.grey,
                     ),
@@ -36,14 +38,14 @@ class ResultScreen extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    bmiValue,
+                    context.read<BMIBrain>().displayBMI(),
                     style: TextStyle(
                       fontSize: 50.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    bmiCategory,
+                    context.read<BMIBrain>().displayCategory(),
                     style: TextStyle(
                       fontSize: 25.0,
                       fontWeight: FontWeight.bold,
