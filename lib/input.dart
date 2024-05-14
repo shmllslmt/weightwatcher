@@ -15,6 +15,7 @@ class _InputScreenState extends State<InputScreen> {
   int weight = 50;
   String bmiValue = "18.5";
   String bmiCategory = "Normal";
+  String name = " ";
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +28,33 @@ class _InputScreenState extends State<InputScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Expanded(
+            child: Card(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Hello",
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                    child: TextField(
+                      onChanged: (value) {
+                        name = value;
+                      },
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        hintText: "write your name here",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           Expanded(
             child: Row(
               children: [
@@ -65,50 +93,21 @@ class _InputScreenState extends State<InputScreen> {
               ],
             ),
           ),
-          Expanded(
-            child: Card(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Your BMI is",
-                    style: TextStyle(
-                      color: Colors.grey,
-                    ),
-                  ),
-                  Text(
-                    bmiValue,
-                    style: TextStyle(
-                      fontSize: 50.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    bmiCategory,
-                    style: TextStyle(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
           MaterialButton(
             onPressed: () {
               BMIBrain bmi = BMIBrain(height: height, weight: weight);
 
-              setState(() {
-                bmiValue = bmi.displayBMI();
-                bmiCategory = bmi.displayCategory();
-              });
+              bmiValue = bmi.displayBMI();
+              bmiCategory = bmi.displayCategory();
 
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => ResultScreen(
-                      bmiValue: bmiValue, bmiCategory: bmiCategory),
+                    bmiValue: bmiValue,
+                    bmiCategory: bmiCategory,
+                    name: name,
+                  ),
                 ),
               );
             },

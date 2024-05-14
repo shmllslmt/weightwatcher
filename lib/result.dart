@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class ResultScreen extends StatelessWidget {
   final String bmiValue;
   final String bmiCategory;
+  final String name;
 
-  ResultScreen({required this.bmiValue, required this.bmiCategory});
+  ResultScreen({required this.bmiValue, required this.bmiCategory, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,12 @@ class ResultScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(
+                    "Hi " + name,
+                    style: TextStyle(
+                      color: Colors.grey,
+                    ),
+                  ),
                   Text(
                     "Your BMI is",
                     style: TextStyle(
