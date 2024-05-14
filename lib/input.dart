@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weightwatcher/bmibrain.dart';
 import 'reusablecard.dart';
 
 class InputScreen extends StatefulWidget {
@@ -11,6 +12,8 @@ class InputScreen extends StatefulWidget {
 class _InputScreenState extends State<InputScreen> {
   int height = 150;
   int weight = 50;
+  String bmiValue = "18.5";
+  String bmiCategory = "Normal";
 
   @override
   Widget build(BuildContext context) {
@@ -73,14 +76,14 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   ),
                   Text(
-                    "19.5",
+                    bmiValue,
                     style: TextStyle(
                       fontSize: 50.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
-                    "Normal",
+                    bmiCategory,
                     style: TextStyle(
                       fontSize: 25.0,
                       fontWeight: FontWeight.bold,
@@ -92,7 +95,14 @@ class _InputScreenState extends State<InputScreen> {
             ),
           ),
           MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              BMIBrain bmi = BMIBrain(height: height, weight: weight);
+
+              setState(() {
+                bmiValue = bmi.displayBMI();
+                bmiCategory = bmi.displayCategory();
+              });
+            },
             child: Text("CALCULATE"),
             color: Colors.pink[700],
             height: 100.0,
