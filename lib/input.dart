@@ -12,11 +12,6 @@ class InputScreen extends StatefulWidget {
 }
 
 class _InputScreenState extends State<InputScreen> {
-  int height = 150;
-  int weight = 50;
-  String bmiValue = "18.5";
-  String bmiCategory = "Normal";
-  String name = " ";
 
   @override
   Widget build(BuildContext context) {

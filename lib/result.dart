@@ -3,11 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
 
 class ResultScreen extends StatelessWidget {
-  // final String bmiValue;
-  // final String bmiCategory;
-  // final String name;
-  //
-  // ResultScreen({required this.bmiValue, required this.bmiCategory, required this.name});
 
   @override
   Widget build(BuildContext context) {
