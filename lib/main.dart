@@ -32,8 +32,16 @@ class BMIApp extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("WEIGHT"),
-                          Text("50"),
+                          Text("WEIGHT",
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),),
+                          Text("50",
+                            style: TextStyle(
+                              fontSize: 50.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
