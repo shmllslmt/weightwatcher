@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+import 'package:provider/provider.dart';
+import 'package:weightwatcher/bmibrain.dart';
 import 'package:weightwatcher/input.dart';
 
 void main() {
@@ -12,11 +14,16 @@ class BMIApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "BMI Calculator",
-      theme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
-      home: InputScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => BMIBrain())
+      ],
+      child: MaterialApp(
+        title: "BMI Calculator",
+        theme: ThemeData.dark(),
+        debugShowCheckedModeBanner: false,
+        home: InputScreen(),
+      ),
     );
   }
 }

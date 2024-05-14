@@ -1,15 +1,27 @@
 import 'dart:math';
+import 'package:flutter/material.dart';
 
-class BMIBrain {
-  final int height;
-  final int weight;
-  double? bmi;
+class BMIBrain with ChangeNotifier {
+  int _height = 250;
+  int _weight = 50;
+  double? _bmi;
 
-  BMIBrain({required this.height, required this.weight});
+  int get tinggi => _height;
+  int get berat => _weight;
+
+  void increaseHeight() {
+    _height++;
+    notifyListeners();
+  }
+
+  void decreaseHeight() {
+    _height--;
+    notifyListeners();
+  }
 
   double calcBMI() {
-    bmi = weight / pow((height/100), 2);
-    return bmi!;
+    _bmi = _weight / pow((_height/100), 2);
+    return _bmi!;
   }
 
   String displayBMI() {

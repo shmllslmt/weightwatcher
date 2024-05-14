@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
 import 'package:weightwatcher/result.dart';
 import 'reusablecard.dart';
@@ -77,16 +78,12 @@ class _InputScreenState extends State<InputScreen> {
                 Expanded(
                   child: ReusableCard(
                     header: "HEIGHT",
-                    content: height.toString(),
+                    content: context.watch<BMIBrain>().tinggi.toString(),
                     onPlusPress: () {
-                      setState(() {
-                        height++;
-                      });
+                      context.read<BMIBrain>().increaseHeight();
                     },
                     onMinusPress: () {
-                      setState(() {
-                        height--;
-                      });
+                      context.read<BMIBrain>().decreaseHeight();
                     },
                   ),
                 ),
@@ -95,21 +92,21 @@ class _InputScreenState extends State<InputScreen> {
           ),
           MaterialButton(
             onPressed: () {
-              BMIBrain bmi = BMIBrain(height: height, weight: weight);
-
-              bmiValue = bmi.displayBMI();
-              bmiCategory = bmi.displayCategory();
-
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultScreen(
-                    bmiValue: bmiValue,
-                    bmiCategory: bmiCategory,
-                    name: name,
-                  ),
-                ),
-              );
+              // BMIBrain bmi = BMIBrain(height: height, weight: weight);
+              //
+              // bmiValue = bmi.displayBMI();
+              // bmiCategory = bmi.displayCategory();
+              //
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) => ResultScreen(
+              //       bmiValue: bmiValue,
+              //       bmiCategory: bmiCategory,
+              //       name: name,
+              //     ),
+              //   ),
+              // );
             },
             child: Text("CALCULATE"),
             color: Colors.pink[700],
