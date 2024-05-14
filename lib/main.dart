@@ -32,11 +32,14 @@ class BMIApp extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("WEIGHT",
-                          style: TextStyle(
-                            color: Colors.grey,
-                          ),),
-                          Text("50",
+                          Text(
+                            "WEIGHT",
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                          Text(
+                            "50",
                             style: TextStyle(
                               fontSize: 50.0,
                               fontWeight: FontWeight.bold,
@@ -68,8 +71,17 @@ class BMIApp extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("HEIGHT"),
-                          Text("150"),
+                          Text(
+                            "HEIGHT",
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          Text(
+                            "150",
+                            style: TextStyle(
+                              fontSize: 50.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -99,9 +111,27 @@ class BMIApp extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("Your BMI is"),
-                    Text("19.5"),
-                    Text("Normal"),
+                    Text(
+                      "Your BMI is",
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
+                    Text(
+                      "19.5",
+                      style: TextStyle(
+                        fontSize: 50.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text(
+                      "Normal",
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.green,
+                      ),
+                    ),
                   ],
                 ),
               ),
