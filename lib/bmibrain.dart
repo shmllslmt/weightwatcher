@@ -2,12 +2,14 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class BMIBrain with ChangeNotifier {
-  int _height = 250;
+  int _height = 170;
   int _weight = 50;
+  String _name = " ";
   double? _bmi;
 
   int get tinggi => _height;
   int get berat => _weight;
+  String get nama => _name;
 
   void increaseHeight() {
     _height++;
@@ -16,6 +18,21 @@ class BMIBrain with ChangeNotifier {
 
   void decreaseHeight() {
     _height--;
+    notifyListeners();
+  }
+
+  void increaseWeight() {
+    _weight++;
+    notifyListeners();
+  }
+
+  void decreaseWeight() {
+    _weight--;
+    notifyListeners();
+  }
+
+  void updateName(String value) {
+    _name = value;
     notifyListeners();
   }
 

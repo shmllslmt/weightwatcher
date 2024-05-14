@@ -44,7 +44,7 @@ class _InputScreenState extends State<InputScreen> {
                     padding: const EdgeInsets.symmetric(horizontal: 50.0),
                     child: TextField(
                       onChanged: (value) {
-                        name = value;
+                        context.read<BMIBrain>().updateName(value);
                       },
                       textAlign: TextAlign.center,
                       decoration: InputDecoration(
@@ -62,16 +62,12 @@ class _InputScreenState extends State<InputScreen> {
                 Expanded(
                   child: ReusableCard(
                     header: "WEIGHT",
-                    content: weight.toString(),
+                    content: context.watch<BMIBrain>().berat.toString(),
                     onPlusPress: () {
-                      setState(() {
-                        weight++;
-                      });
+                      context.read<BMIBrain>().increaseWeight();
                     },
                     onMinusPress: () {
-                      setState(() {
-                        weight--;
-                      });
+                      context.read<BMIBrain>().decreaseWeight();
                     },
                   ),
                 ),
@@ -79,9 +75,8 @@ class _InputScreenState extends State<InputScreen> {
                   child: ReusableCard(
                     header: "HEIGHT",
                     content: context.watch<BMIBrain>().tinggi.toString(),
-                    onPlusPress: () {
-                      context.read<BMIBrain>().increaseHeight();
-                    },
+                    onPlusPress: () => context.read<BMIBrain>().increaseHeight()
+                    ,
                     onMinusPress: () {
                       context.read<BMIBrain>().decreaseHeight();
                     },
