@@ -48,7 +48,9 @@ class ResultScreen extends StatelessWidget {
             ),
           ),
           MaterialButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             child: Text("RE-CALCULATE"),
             color: Colors.pink[700],
             height: 100.0,
