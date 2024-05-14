@@ -28,80 +28,10 @@ class BMIApp extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Card(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "WEIGHT",
-                            style: TextStyle(
-                              color: Colors.grey,
-                            ),
-                          ),
-                          Text(
-                            "50",
-                            style: TextStyle(
-                              fontSize: 50.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              MaterialButton(
-                                onPressed: () {},
-                                child: Icon(CupertinoIcons.plus),
-                                color: Colors.grey,
-                                shape: CircleBorder(),
-                              ),
-                              MaterialButton(
-                                onPressed: () {},
-                                child: Icon(CupertinoIcons.minus),
-                                color: Colors.grey,
-                                shape: CircleBorder(),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: ReusableCard(),
                   ),
                   Expanded(
-                    child: Card(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "HEIGHT",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          Text(
-                            "150",
-                            style: TextStyle(
-                              fontSize: 50.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              MaterialButton(
-                                onPressed: () {},
-                                child: Icon(CupertinoIcons.plus),
-                                color: Colors.grey,
-                                shape: CircleBorder(),
-                              ),
-                              MaterialButton(
-                                onPressed: () {},
-                                child: Icon(CupertinoIcons.minus),
-                                color: Colors.grey,
-                                shape: CircleBorder(),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
+                    child: ReusableCard(),
                   ),
                 ],
               ),
@@ -144,6 +74,55 @@ class BMIApp extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class ReusableCard extends StatelessWidget {
+  const ReusableCard({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            "WEIGHT",
+            style: TextStyle(
+              color: Colors.grey,
+            ),
+          ),
+          Text(
+            "50",
+            style: TextStyle(
+              fontSize: 50.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MaterialButton(
+                onPressed: () {},
+                child: Icon(CupertinoIcons.plus),
+                color: Colors.grey,
+                shape: CircleBorder(),
+                height: 50.0,
+              ),
+              MaterialButton(
+                onPressed: () {},
+                child: Icon(CupertinoIcons.minus),
+                color: Colors.grey,
+                shape: CircleBorder(),
+                height: 50.0,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
