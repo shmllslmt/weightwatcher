@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weightwatcher/bmibrain.dart';
+import 'package:weightwatcher/result.dart';
 import 'reusablecard.dart';
 
 class InputScreen extends StatefulWidget {
@@ -102,6 +103,14 @@ class _InputScreenState extends State<InputScreen> {
                 bmiValue = bmi.displayBMI();
                 bmiCategory = bmi.displayCategory();
               });
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultScreen(
+                      bmiValue: bmiValue, bmiCategory: bmiCategory),
+                ),
+              );
             },
             child: Text("CALCULATE"),
             color: Colors.pink[700],
