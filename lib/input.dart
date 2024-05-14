@@ -9,6 +9,9 @@ class InputScreen extends StatefulWidget {
 }
 
 class _InputScreenState extends State<InputScreen> {
+  int height = 150;
+  int weight = 50;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,13 +29,25 @@ class _InputScreenState extends State<InputScreen> {
                 Expanded(
                   child: ReusableCard(
                     header: "WEIGHT",
-                    content: "50",
+                    content: weight.toString(),
+                    onPlusPress: () {
+                      setState(() {
+                        weight++;
+                      });
+                    },
+                    onMinusPress: () {
+                      setState(() {
+                        weight--;
+                      });
+                    },
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     header: "HEIGHT",
-                    content: "150",
+                    content: height.toString(),
+                    onPlusPress: () {},
+                    onMinusPress: () {},
                   ),
                 ),
               ],
