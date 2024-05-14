@@ -46,8 +46,16 @@ class _InputScreenState extends State<InputScreen> {
                   child: ReusableCard(
                     header: "HEIGHT",
                     content: height.toString(),
-                    onPlusPress: () {},
-                    onMinusPress: () {},
+                    onPlusPress: () {
+                      setState(() {
+                        height++;
+                      });
+                    },
+                    onMinusPress: () {
+                      setState(() {
+                        height--;
+                      });
+                    },
                   ),
                 ),
               ],
