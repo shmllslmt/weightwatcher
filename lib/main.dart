@@ -28,10 +28,16 @@ class BMIApp extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: ReusableCard(),
+                    child: ReusableCard(
+                      header: "WEIGHT",
+                      content: "50",
+                    ),
                   ),
                   Expanded(
-                    child: ReusableCard(),
+                    child: ReusableCard(
+                      header: "HEIGHT",
+                      content: "150",
+                    ),
                   ),
                 ],
               ),
@@ -80,9 +86,10 @@ class BMIApp extends StatelessWidget {
 }
 
 class ReusableCard extends StatelessWidget {
-  const ReusableCard({
-    super.key,
-  });
+  final String header;
+  final String content;
+
+  ReusableCard({required this.header, required this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -91,13 +98,13 @@ class ReusableCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "WEIGHT",
+            header,
             style: TextStyle(
               color: Colors.grey,
             ),
           ),
           Text(
-            "50",
+            content,
             style: TextStyle(
               fontSize: 50.0,
               fontWeight: FontWeight.bold,
