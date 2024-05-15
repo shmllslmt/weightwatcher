@@ -3,8 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
+import 'package:weightwatcher/history.dart';
 import 'package:weightwatcher/input.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:weightwatcher/signin.dart';
+import 'package:weightwatcher/signup.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");

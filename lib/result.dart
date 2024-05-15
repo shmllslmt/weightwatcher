@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
 
@@ -48,14 +49,18 @@ class ResultScreen extends StatelessWidget {
                   ),
                   !context.watch<BMIBrain>().loading
                       ? Expanded(
-                        child: SingleChildScrollView(
+                          child: SingleChildScrollView(
                             child: Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                              padding:
+                                  const EdgeInsets.all(20.0),
                               child: Text(context.watch<BMIBrain>().dietplan),
                             ),
                           ),
-                      )
-                      : Text("No suggestion found."),
+                        )
+                      : SpinKitRotatingCircle(
+                          color: Colors.grey,
+                          size: 25.0,
+                        ),
                 ],
               ),
             ),
