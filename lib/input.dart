@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
 import 'package:weightwatcher/result.dart';
@@ -12,6 +14,24 @@ class InputScreen extends StatefulWidget {
 }
 
 class _InputScreenState extends State<InputScreen> {
+  late final GenerativeModel model;
+  late final ChatSession chat;
+  bool hasAPIKey = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    hasAPIKey = dotenv.env['API_KEY'] != null && dotenv.env['API_KEY']!.isNotEmpty;
+
+    if(hasAPIKey) {
+      model =
+          GenerativeModel(model: 'gemini-pro', apiKey: dotenv.env['API_KEY']!);
+      chat = model.startChat();
+    } else {
+      print("No API key.");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
