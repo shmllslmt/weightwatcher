@@ -28,6 +28,10 @@ class _InputScreenState extends State<InputScreen> {
       model =
           GenerativeModel(model: 'gemini-pro', apiKey: dotenv.env['API_KEY']!);
       chat = model.startChat();
+
+      if(model != null) {
+        print("Good to go!");
+      }
     } else {
       print("No API key.");
     }
@@ -102,6 +106,8 @@ class _InputScreenState extends State<InputScreen> {
           ),
           MaterialButton(
             onPressed: () {
+              context.read<BMIBrain>().promptDietPlan(chat);
+
               Navigator.push(context, MaterialPageRoute(builder: (context) => ResultScreen()));
             },
             child: Text("CALCULATE"),
