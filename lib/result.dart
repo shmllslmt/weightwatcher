@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
 
 class ResultScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,6 +46,16 @@ class ResultScreen extends StatelessWidget {
                       color: Colors.green,
                     ),
                   ),
+                  !context.watch<BMIBrain>().loading
+                      ? Expanded(
+                        child: SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                              child: Text(context.watch<BMIBrain>().dietplan),
+                            ),
+                          ),
+                      )
+                      : Text("No suggestion found."),
                 ],
               ),
             ),
@@ -64,4 +73,3 @@ class ResultScreen extends StatelessWidget {
     );
   }
 }
-

@@ -8,6 +8,7 @@ class BMIBrain with ChangeNotifier {
   String _name = " ";
   double? _bmi;
   late var dietplan;
+  bool loading = false;
 
   int get tinggi => _height;
   int get berat => _weight;
@@ -61,12 +62,16 @@ class BMIBrain with ChangeNotifier {
   }
   
   Future<void> promptDietPlan(ChatSession chat) async {
+    loading = true;
+
     try {
       final response = await chat.sendMessage(Content.text(
           "As an expert nutritionist, suggest dietary plan considering that my bmi is " +
               displayCategory() +
               ". Remove the necessary disclaimer. Ensure the suggestion is brief and concise."));
       dietplan = response.text;
+
+      loading = false;
 
       if (dietplan != null) {
         print(dietplan);
@@ -76,7 +81,10 @@ class BMIBrain with ChangeNotifier {
     } catch(e) {
       print(e.toString());
     } finally {
-
+      loading = false;
     }
+
+    notifyListeners();
   }
+
 }
