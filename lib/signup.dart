@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:weightwatcher/input.dart';
 
 class SignUpScreen extends StatefulWidget {
   static String id = "SignUpScreen";
@@ -9,6 +11,10 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  String? email;
+  String? password;
+
+  final _auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             TextField(
               onChanged: (value) {
+                email = value;
               },
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
@@ -41,6 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             TextField(
               onChanged: (value) {
+                password = value;
               },
               obscureText: true,
               decoration: InputDecoration(
@@ -51,8 +59,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
               height: 30.0,
             ),
             FilledButton(
-              onPressed: () {
+              onPressed: () async {
+                try {
+                  final user = await _auth.createUserWithEmailAndPassword(
+                      email: email!, password: password!);
 
+                  if (user != null) {
+                    Navigator.pushNamed(context, InputScreen.id);
+                  }
+                } catch (e) {
+                  print(e.toString());
+                }
               },
               child: Text('Sign Up'),
               style: FilledButton.styleFrom(

@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:weightwatcher/input.dart';
+import 'package:weightwatcher/signup.dart';
 
 class SignInScreen extends StatefulWidget {
   static String id = "SignInScreen";
@@ -9,6 +12,11 @@ class SignInScreen extends StatefulWidget {
 }
 
 class _SignInScreenState extends State<SignInScreen> {
+  String? email;
+  String? password;
+
+  final _auth = FirebaseAuth.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +37,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             TextField(
               onChanged: (value) {
-
+                email = value;
               },
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
@@ -41,7 +49,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             TextField(
               onChanged: (value) {
-
+                password = value;
               },
               obscureText: true,
               decoration: InputDecoration(
@@ -52,8 +60,17 @@ class _SignInScreenState extends State<SignInScreen> {
               height: 30.0,
             ),
             FilledButton(
-              onPressed: () {
+              onPressed: () async {
+                try {
+                  final user = await _auth.signInWithEmailAndPassword(
+                      email: email!, password: password!);
 
+                  if (user != null) {
+                    Navigator.pushNamed(context, InputScreen.id);
+                  }
+                } catch (e) {
+                  print(e.toString());
+                }
               },
               child: Text('Login'),
               style: FilledButton.styleFrom(
@@ -66,7 +83,7 @@ class _SignInScreenState extends State<SignInScreen> {
             ),
             FilledButton(
               onPressed: () {
-
+                Navigator.pushNamed(context, SignUpScreen.id);
               },
               child: Text('Sign Up'),
               style: FilledButton.styleFrom(

@@ -32,7 +32,7 @@ class BMIApp extends StatelessWidget {
         title: "BMI Calculator",
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        initialRoute: InputScreen.id,
+        initialRoute: SignInScreen.id,
         routes: {
           SignInScreen.id: (context) => SignInScreen(),
           SignUpScreen.id: (context) => SignUpScreen(),
