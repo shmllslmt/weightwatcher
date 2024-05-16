@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
 
 class ResultScreen extends StatelessWidget {
+  static String id = "ResultScreen";
+  
+  final _firestore = FirebaseFirestore.instance;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +76,28 @@ class ResultScreen extends StatelessWidget {
             },
             child: Text("RE-CALCULATE"),
             color: Colors.pink[700],
-            height: 100.0,
+            height: 75.0,
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          MaterialButton(
+            onPressed: () {
+              final successful = _firestore.collection("weightwatcher").add({
+                'name': context.read<BMIBrain>().nama,
+                'bmi': context.read<BMIBrain>().calcBMI(),
+                'category': context.read<BMIBrain>().displayCategory(),
+                'plan': context.read<BMIBrain>().dietplan,
+                'timestamp': FieldValue.serverTimestamp(),
+              });
+
+              if(successful != null) {
+                print("Save successful");
+              }
+            },
+            child: Text("SAVE"),
+            color: Colors.pink[100],
+            height: 75.0,
           ),
         ],
       ),

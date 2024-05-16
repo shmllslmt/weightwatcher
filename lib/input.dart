@@ -3,11 +3,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:provider/provider.dart';
 import 'package:weightwatcher/bmibrain.dart';
+import 'package:weightwatcher/history.dart';
 import 'package:weightwatcher/result.dart';
 import 'reusablecard.dart';
 
 class InputScreen extends StatefulWidget {
-  const InputScreen({Key? key}) : super(key: key);
+  static String id = "InputScreen";
 
   @override
   State<InputScreen> createState() => _InputScreenState();
@@ -112,7 +113,18 @@ class _InputScreenState extends State<InputScreen> {
             },
             child: Text("CALCULATE"),
             color: Colors.pink[700],
-            height: 100.0,
+            height: 75.0,
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          MaterialButton(
+            onPressed: () {
+              Navigator.pushNamed(context, HistoryScreen.id);
+            },
+            child: Text("VIEW HISTORY"),
+            color: Colors.pink[100],
+            height: 75.0,
           ),
         ],
       ),

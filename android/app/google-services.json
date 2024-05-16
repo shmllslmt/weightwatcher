@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "240506779182",
+    "project_id": "weightwatcher-59b4e",
+    "storage_bucket": "weightwatcher-59b4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240506779182:android:2a779ac833c4e4b82f11bf",
+        "android_client_info": {
+          "package_name": "com.shamilla.weightwatcher"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBB40aBdXj2obXGWZPZDL3wrqDW3ssWd1w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
